@@ -13,7 +13,20 @@
     <p id="message">Presiona para comenzar</p>
     <button id="playBtn">START</button>
   </div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const start = document.getElementById("startBtn");
+  if (start) {
+    start.addEventListener("click", () => {
+      // Oculta el botón START
+      start.style.display = "none";
 
+      // Ejecuta la función principal del juego si existe
+      if (typeof startGame === "function") startGame();
+    });
+  }
+});
+</script>
   <audio id="music" src="assets/music.mp3" loop></audio>
 
   <script src="game.js"></script>
