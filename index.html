@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -13,22 +13,32 @@
     <p id="message">Presiona para comenzar</p>
     <button id="playBtn">START</button>
   </div>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const start = document.getElementById("startBtn");
-  if (start) {
-    start.addEventListener("click", () => {
-      // Oculta el botón START
-      start.style.display = "none";
 
-      // Ejecuta la función principal del juego si existe
-      if (typeof startGame === "function") startGame();
-    });
-  }
-});
-</script>
   <audio id="music" src="assets/music.mp3" loop></audio>
 
   <script src="game.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const startBtn = document.getElementById("playBtn");
+      const music = document.getElementById("music");
+      const message = document.getElementById("message");
+
+      startBtn.addEventListener("click", () => {
+        // Oculta el botón START
+        startBtn.style.display = "none";
+
+        // Inicia la música
+        music.play().catch(() => {
+          console.log("El autoplay fue bloqueado, espera interacción del usuario.");
+        });
+
+        // Cambia mensaje
+        message.textContent = "¡Comenzamos!";
+
+        // Llama a la función principal del juego si existe
+        if (typeof startGame === "function") startGame();
+      });
+    });
+  </script>
 </body>
 </html>
