@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  background: black;
+  color: #00ffe1;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#game { text-align: center; }
+
+button {
+  padding: 15px 30px;
+  background: #ff0077;
+  border: none;
+  color: white;
+  font-size: 18px;
+  border-radius: 10px;
+}
